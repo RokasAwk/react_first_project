@@ -8,7 +8,8 @@ class App extends Component  {
   constructor(){
     super();
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: '',
     }
   }
 
@@ -25,30 +26,40 @@ class App extends Component  {
       ));
   }
 
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase();
+
+    // onChange setState
+    this.setState(() => {
+      return {
+      searchField
+      };
+    });   
+
+  }
+
   render(){
+
+    const { monsters, searchField } = this.state; // 底下就不用再用this.state
+    const { onSearchChange } = this;
+
+    // 變成把搜尋後的結果印出來，每次都用原始list做搜尋，沒搜尋的時候也有原始list的值
+    const filteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLocaleLowerCase().includes(searchField);
+     });
+
 
     return (
     <div className="App">
-      <input className='search-box' type='search' placeholder='搜尋怪物...' onChange={(event) => {
-      
-      const searchString = event.target.value.toLocaleLowerCase();
-      const filteredMonsters = this.state.monsters.filter((monster) => {
-        return monster.name.toLocaleLowerCase().includes(searchString);
-       });
-
-      // onChange setState
-      this.setState(() => {
-        return {
-          monsters: filteredMonsters
-        };
-      });   
-
-     }}/>
+      <input className='search-box'
+             type='search' 
+             placeholder='搜尋怪物...' 
+             onChange={(event) => {onSearchChange(event)}}/>
 
 
       {
         //畫面顯示
-        this.state.monsters.map((monster) => {
+        filteredMonsters.map((monster) => {
           return (
           <div key={monster.id}><h1>{monster.name}</h1></div>
           )
