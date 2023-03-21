@@ -1,7 +1,7 @@
 import { Component  } from "react";
 
 
-// 自定義的conponent可自定義props類型名稱
+// 自定義的component可自定義props類型名稱
 class CardList extends Component {
 
     render() {

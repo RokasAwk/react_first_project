@@ -3,7 +3,7 @@ import { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
-// 自定義conponent引入
+// 自定義component引入
 import CardList from './components/card-list/card-list.component';
 
 class App extends Component  {
@@ -54,7 +54,7 @@ class App extends Component  {
 
     return (
 
-    // 自定義conponent引入用法 <自定義conponent/>
+    // 自定義component引入用法 <自定義component/>
     <div className="App">
       <input className='search-box'
              type='search' 
