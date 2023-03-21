@@ -3,6 +3,9 @@ import { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
 
+// 自定義conponent引入
+import CardList from './components/card-list/card-list.component';
+
 class App extends Component  {
 
   constructor(){
@@ -50,23 +53,28 @@ class App extends Component  {
 
 
     return (
+
+    // 自定義conponent引入用法 <自定義conponent/>
     <div className="App">
       <input className='search-box'
              type='search' 
              placeholder='搜尋怪物...' 
-             onChange={(event) => {onSearchChange(event)}}/>
+             onChange={onSearchChange}/>
 
 
-      {
+      {/* {
         //畫面顯示
         filteredMonsters.map((monster) => {
           return (
           <div key={monster.id}><h1>{monster.name}</h1></div>
           )
-
         })
-      } 
-    </div>
+      }  */}
+      
+      <CardList monsters={filteredMonsters}/>
+    </div>   
+
+      
   );} 
  
 }
