@@ -26,12 +26,10 @@ class CardList extends Component {
             //         <div>CardList Component line2</div>       
             //    </div>
 
-            <div>
-                 <div>
-                    {monsters.map((monster) => (
+            <div class='card-list'>
+                 {monsters.map((monster) => (
                         <h1 key={monster.id}>{monster.name}</h1>
                     ))}
-                 </div> 
             </div>
             
             )

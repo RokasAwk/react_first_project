@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 // import logo from './logo.svg';
 import './App.css';
+import SearchBox from './components/search-box/search-box.component';
 
 // 自定義component引入
 import CardList from './components/card-list/card-list.component';
@@ -56,12 +57,7 @@ class App extends Component  {
 
     // 自定義component引入用法 <自定義component/>
     <div className="App">
-      <input className='search-box'
-             type='search' 
-             placeholder='搜尋怪物...' 
-             onChange={onSearchChange}/>
-
-
+     
       {/* {
         //畫面顯示
         filteredMonsters.map((monster) => {
@@ -70,7 +66,12 @@ class App extends Component  {
           )
         })
       }  */}
-      
+
+      <SearchBox
+        className='monsters-search-box'
+        onChangeHandler ={onSearchChange} 
+        placeholder ='搜尋怪物...'/>
+        
       <CardList monsters={filteredMonsters}/>
     </div>   
 
