@@ -1,12 +1,15 @@
 import { Component  } from "react";
+import './card-list.style.css';
+import CardTemplate from "../card-template/card-template.component";
 
 
 // 自定義的component可自定義props類型名稱
 class CardList extends Component {
 
     render() {
-
+        
         const { monsters } = this.props;
+
 
         return (
         
@@ -27,9 +30,14 @@ class CardList extends Component {
             //    </div>
 
             <div class='card-list'>
-                 {monsters.map((monster) => (
-                        <h1 key={monster.id}>{monster.name}</h1>
-                    ))}
+               
+               {monsters.map((monster) => { 
+               return ( 
+                    <CardTemplate monster={monster}/>
+                    )
+                  
+                    //  <h1 key={monster.id}>{monster.name}</h1>
+                })}
             </div>
             
             )
